@@ -1,8 +1,9 @@
 const ronin 		= require( 'ronin-server' )
 const mocks 		= require( 'ronin-mocks' )
+const UrlHelper		= require( './util/urlHelper' )
 
 async function main() {
-
+	applicationName = "Clean Code Application";
 	try {
 
     const server = ronin.server({
@@ -12,6 +13,9 @@ async function main() {
 	  server.use( '/services/', mocks.server( server.Router(), false, true ) )
 	  server.use( '/services/v2/people', function( req, res ) {
 		let sql = "SELECT * FROM "+ req.params.sql;
+
+		const urlHelper = UrlHelper();
+		console.info( 'urlHelper: '+ urlHelper.url )
 	  })
 
     const result = await server.start()
