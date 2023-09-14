@@ -10,6 +10,9 @@ async function main() {
 		})
 
 	  server.use( '/services/', mocks.server( server.Router(), false, true ) )
+	  server.use( '/services/v2/people', function( req, res ) {
+		let sql = "SELECT * FROM "+ req.params.sql;
+	  })
 
     const result = await server.start()
     console.info( result )
