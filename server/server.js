@@ -11,6 +11,7 @@ async function main() {
 			port: process.env.PORT || 8080
 		})
 
+		// hope this works
 		const connstr = process.env.DB_CONN_STR;
 		const db = await mongo.connect( connstr, { useNewUrlParser: true, useUnifiedTopology: true } )
 
