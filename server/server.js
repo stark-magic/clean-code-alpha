@@ -11,7 +11,8 @@ async function main() {
 			port: process.env.PORT || 8080
 		})
 
-		const db = await mongo.connect( "mongodb+srv://myDatabaseUser:D1fficultP%40ssw0rd@cluster0.example.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true } )
+		const connstr = process.env.DB_CONN_STR;
+		const db = await mongo.connect( connstr, { useNewUrlParser: true, useUnifiedTopology: true } )
 
 	  server.use( '/services/', mocks.server( server.Router(), false, true ) )
 	  server.use( '/services/v2/people', function( req, res ) {
