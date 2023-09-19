@@ -14,7 +14,8 @@ async function main() {
 		})
 
 		// This should change
-		const db = await mongo.connect( "mongodb+srv://myDatabaseUser:D1fficultP%41ssw0rd@cluster0.example.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true } )
+		// const db = await mongo.connect( "mongodb+srv://myDatabaseUser:D1fficultP%41ssw0rd@cluster0.example.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true } )
+		const db = await mongo.connect( "mongodb+srv://myDatabaseUser:D1fficultP%40ssw0rd@cluster0.example.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true } )
 
 	  server.use( '/services/', mocks.server( server.Router(), false, true ) )
 	  server.use( '/services/v2/people', function( req, res ) {
