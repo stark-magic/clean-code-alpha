@@ -4,3 +4,7 @@ function UrlHelper( url ) {
     this.url = url
     myUrls.push( url )
 }
+
+function parseUrl( url ) {
+    return url
+}
