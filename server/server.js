@@ -6,24 +6,21 @@ const mongo 		= require( 'mongodb' ).MongoClient
 
 async function main() {
 	try {
-	//
-	// This is were we setup the server
-	//
-    const server = ronin.server({
-			port: process.env.PORT || 8080
-		})
+		//
+		// This is were we setup the server
+		//
+		const server = ronin.server({ port: process.env.PORT || 8080 })
 
 		await dbHelper.getDbConnection()
 
-	  server.use( '/services/', mocks.server( server.Router(), false, true ) )
+		server.use( '/services/', mocks.server( server.Router(), false, true ) )
 
-    const result = await server.start()
-    console.info( result )
+		const result = await server.start()
+		console.info( result )
 
 	} catch( error ) {
-				console.error( error )
+		console.error( error )
 	}
-
 }
 
 main()
