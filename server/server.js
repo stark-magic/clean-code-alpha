@@ -6,7 +6,9 @@ const mongo 		= require( 'mongodb' ).MongoClient
 async function main() {
 	applicationName = "Clean Code Application";
 	try {
-
+	//
+	// This is were we setup the server
+	//
     const server = ronin.server({
 			port: process.env.PORT || 8080
 		})
