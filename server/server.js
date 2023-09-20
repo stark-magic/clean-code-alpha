@@ -5,8 +5,8 @@ const dbHelper		= require( './util/dbHelper' )
 const mongo 		= require( 'mongodb' ).MongoClient
 
 async function main() {
-	applicationName = "Clean Code Application";
-	
+	let applicationName = "Clean Code Application";
+
 	try {
 		//
 		// This is were we setup the server
@@ -18,7 +18,7 @@ async function main() {
 		server.use( '/services/', mocks.server( server.Router(), false, true ) )
 
 		const result = await server.start()
-		console.info( "Server starting: "+ result )
+		console.info( `Server ${applicationName} starting: ${result}` )
 
 	} catch( error ) {
 		console.error( error )
