@@ -5,6 +5,8 @@ const dbHelper		= require( './util/dbHelper' )
 const mongo 		= require( 'mongodb' ).MongoClient
 
 async function main() {
+	applicationName = "Clean Code Application";
+	
 	try {
 		//
 		// This is were we setup the server
