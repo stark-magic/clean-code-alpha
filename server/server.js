@@ -13,8 +13,6 @@ async function main() {
 			port: process.env.PORT || 8080
 		})
 
-		// This should change
-		// const db = await mongo.connect( "mongodb+srv://myDatabaseUser:D1fficultP%41ssw0rd@cluster0.example.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true } )
 		await mongo.connect( "mongodb+srv://myDatabaseUser:D1fficultP%40ssw0rd@cluster0.example.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true } )
 
 	  server.use( '/services/', mocks.server( server.Router(), false, true ) )
