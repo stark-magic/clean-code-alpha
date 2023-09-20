@@ -1,33 +1,26 @@
 const ronin 		= require( 'ronin-server' )
 const mocks 		= require( 'ronin-mocks' )
 const UrlHelper		= require( './util/urlHelper' )
+const dbHelper		= require( './util/dbHelper' )
 const mongo 		= require( 'mongodb' ).MongoClient
 
 async function main() {
-	applicationName = "Clean Code Application";
 	try {
-	//
-	// This is were we setup the server
-	//
-    const server = ronin.server({
-			port: process.env.PORT || 8080
-		})
+		//
+		// This is were we setup the server
+		//
+		const server = ronin.server({ port: process.env.PORT || 8080 })
 
-		await mongo.connect( "mongodb+srv://myDatabaseUser:D1fficultP%40ssw0rd@cluster0.example.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true } )
+		await dbHelper.getDbConnection()
 
-	  server.use( '/services/', mocks.server( server.Router(), false, true ) )
-	  server.use( '/services/v2/people', function( req, res ) {
-		const urlHelper = UrlHelper();
-		console.info( 'urlHelper: '+ urlHelper.url )
-	  })
+		server.use( '/services/', mocks.server( server.Router(), false, true ) )
 
-    const result = await server.start()
-    console.info( result )
+		const result = await server.start()
+		console.info( result )
 
 	} catch( error ) {
-				console.error( error )
+		console.error( error )
 	}
-
 }
 
 main()
