@@ -16,7 +16,7 @@ async function main() {
 		server.use( '/services/', mocks.server( server.Router(), false, true ) )
 
 		const result = await server.start()
-		console.info( result )
+		console.info( "Server starting: "+ result )
 
 	} catch( error ) {
 		console.error( error )
